@@ -22,7 +22,12 @@ const cwd = sh.pwd().toString();
 const convertAndWrite = (file, outputPath) => {
 
   let output = fs.readFileSync(file, 'utf8');
-  output = convert(output);
+  try {
+    output = convert(output);
+  } catch ( e ) {
+    console.error('ERROR: convert error. Input code is too complex to convert.');
+    process.exit(1);
+  }
   const outputDir = path.join(cwd, '/' + outputPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
