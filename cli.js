@@ -6,6 +6,7 @@ const yargs = require('yargs');
 const fs = require('fs');
 const path = require('path');
 const sh = require('shelljs');
+const mkdirp = require('mkdirp');
 const convert = require('./convert');
 
 const ARGS = yargs
@@ -29,9 +30,7 @@ const convertAndWrite = (file, outputPath) => {
     process.exit(1);
   }
   const outputDir = path.join(cwd, '/' + outputPath);
-  if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
-  }
+  mkdirp(outputPath);
   fs.writeFileSync(outputDir + path.basename(file), output);
 };
 
