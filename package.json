@@ -1,0 +1,34 @@
+{
+  "name": "kaomojify",
+  "version": "0.1.0",
+  "description": "Kaomojify Javascript code",
+  "main": "",
+  "bin": {
+    "kaomojify": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokororin/kaomojify.git"
+  },
+  "keywords": [
+    "library"
+  ],
+  "author": "kokororin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kokororin/kaomojify/issues"
+  },
+  "homepage": "https://github.com/kokororin/kaomojify#readme",
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-crocodile": "^1.0.0"
+  },
+  "dependencies": {
+    "glob": "^7.0.6",
+    "yargs": "^5.0.0"
+  }
+}

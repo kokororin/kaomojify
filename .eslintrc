@@ -1,0 +1,10 @@
+{
+  "extends": "crocodile",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "es6": true,
+      "node": true
+    }
+  }
+}
