@@ -1,6 +1,6 @@
 {
   "name": "kaomojify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kaomojify Javascript code",
   "main": "",
   "bin": {
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "glob": "^7.0.6",
+    "shelljs": "^0.7.4",
     "yargs": "^5.0.0"
   }
 }
