@@ -1,7 +1,7 @@
 # kaomojify (≧∀≦*)
 
-[![GitHub issues](https://img.shields.io/github/issues/kokororin/pixiv.moe.svg)](https://github.com/kokororin/kaomojify/issues)
-[![npm version](https://badge.fury.io/js/pixiv.moe.svg)](https://badge.fury.io/js/kaomojify)
+[![GitHub issues](https://img.shields.io/github/issues/kokororin/kaomojify.svg)](https://github.com/kokororin/kaomojify/issues)
+[![npm version](https://badge.fury.io/js/kaomojify.svg)](https://badge.fury.io/js/kaomojify)
 ![Dependency Tracker](https://img.shields.io/david/kokororin/kaomojify.svg "Dependency Tracker") ![Dependency Tracker](https://img.shields.io/david/dev/kokororin/kaomojify.svg "Dependency Tracker")
 
 Convert Javascript code to Japanese kawaii kaomoji(かわいい顔文字).
