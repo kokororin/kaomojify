@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const sh = require('shelljs');
 const mkdirp = require('mkdirp');
+const isThere = require('is-there');
 const convert = require('./convert');
 
 const cwd = sh.pwd().toString();
@@ -57,7 +58,7 @@ const cli = (args) => {
       console.error('ERROR: Invalid output');
       return 1;
     }
-    if (fs.existsSync(input)) {
+    if (isThere(input)) {
       return convertAndWrite(input, output);
     }
     glob(input, (err, files) => {

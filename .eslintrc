@@ -1,10 +1,19 @@
 {
-  "extends": "crocodile",
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true,
       "es6": true,
       "node": true
     }
+  },
+  "env": {
+    "es6": true
+  },
+  "rules": {
+    "node/no-unsupported-features": [2, {
+      "version": 4
+    }],
+    "no-console": 0
   }
 }
