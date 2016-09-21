@@ -29,9 +29,10 @@ const cli = (args) => {
   if (typeof args === 'undefined') {
     return 1;
   }
-  if (typeof args !== 'object') {
+  if (typeof args !== 'string') {
     return 1;
   }
+  args = yargs(args).argv;
   yargs
     .describe('output', 'Output file')
     .describe('version', 'Print version number and exit')
