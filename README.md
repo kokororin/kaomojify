@@ -21,7 +21,7 @@ kaomojify <input> -o <output>
 example:
 ```bash
 # single file
-kaomojify src/main.js -o dist/
+kaomojify src/main.js -o dist/main.js
 
 # use glob definition in input
 kaomojify src/*.js -o dist/

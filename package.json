@@ -1,6 +1,6 @@
 {
   "name": "kaomojify",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Kaomojify Javascript code",
   "main": "",
   "bin": {
@@ -20,10 +20,9 @@
   },
   "homepage": "https://github.com/kokororin/kaomojify#readme",
   "dependencies": {
-    "glob": "^7.0.6",
+    "glob": "^7.1.0",
     "is-there": "^4.3.3",
     "mkdirp": "^0.5.1",
-    "shelljs": "^0.7.4",
     "yargs": "^5.0.0"
   },
   "devDependencies": {

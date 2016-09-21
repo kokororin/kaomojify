@@ -3,7 +3,7 @@
 
 const cli = require('./cli');
 
-const exitCode = cli(process.argv[2] || '');
+const exitCode = cli(process.argv.slice(2));
 
 process.on('exit', () => {
   process.exit(exitCode);

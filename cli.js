@@ -4,25 +4,44 @@ const glob = require('glob');
 const yargs = require('yargs');
 const fs = require('fs');
 const path = require('path');
-const sh = require('shelljs');
 const mkdirp = require('mkdirp');
 const isThere = require('is-there');
 const convert = require('./convert');
 
-const cwd = sh.pwd().toString();
+/**
+ * @deprecated
+ * @code const cwd = require('shelljs').pwd().toString();
+ */
 
-const convertAndWrite = (file, outputPath) => {
+const convertAndWrite = (inputFile, outputPath, single) => {
 
-  let output = fs.readFileSync(file, 'utf8');
+  let outputData = fs.readFileSync(inputFile, 'utf8');
+
   try {
-    output = convert(output);
+    outputData = convert(outputData);
   } catch ( e ) {
     console.error('ERROR: convert error. Input code is too complex to convert.');
     return 1;
   }
-  const outputDir = path.join(cwd, '/' + outputPath);
-  mkdirp(outputPath);
-  fs.writeFileSync(outputDir + path.basename(file), output);
+
+  let realOutputPath = undefined;
+
+  if (single) {
+    realOutputPath = outputPath;
+    mkdirp(path.parse(realOutputPath).dir);
+  } else {
+    realOutputPath = outputPath + path.basename(inputFile);
+    mkdirp(outputPath);
+  }
+
+  try {
+    fs.writeFileSync(realOutputPath, outputData);
+    console.log('SUCCESS: generated file `' + realOutputPath + '`');
+  } catch ( e ) {
+    console.error('ERROR: write data to `' + realOutputPath + '` failed.')
+    return 1;
+  }
+
   return 0;
 };
 
@@ -30,17 +49,20 @@ const cli = (args) => {
   if (typeof args === 'undefined') {
     return 1;
   }
+  if (typeof args === 'object') {
+    args = args.join(' ');
+  }
   if (typeof args !== 'string') {
     return 1;
   }
-  args = yargs(args).argv;
-  yargs
+  args = yargs(args)
     .describe('output', 'Output file')
     .describe('version', 'Print version number and exit')
     .help('help')
     .alias('o', 'output')
     .alias('h', 'help')
-    .alias('v', 'version');
+    .alias('v', 'version')
+    .argv;
 
   if (args.version || args.v) {
     const json = require('./package.json');
@@ -48,32 +70,30 @@ const cli = (args) => {
     return 0;
   }
 
-
-  if (args._[0]) {
-    const input = args._[0];
-    let output = undefined;
+  if (args._.length > 0) {
+    const inputFiles = args._;
+    let outputPath = undefined;
     if (args.output || args.o) {
-      output = args.output || args.o;
+      outputPath = args.outputPath || args.o;
     } else {
       console.error('ERROR: Invalid output');
       return 1;
     }
-    if (isThere(input)) {
-      return convertAndWrite(input, output);
+    for (let inputFile of inputFiles) {
+      if (!isThere(inputFile)) {
+        glob(inputFile, (err, globFiles) => {
+          for (let globFile of globFiles) {
+            convertAndWrite(globFile, outputPath, false);
+          }
+        });
+      } else {
+        convertAndWrite(inputFile, outputPath, inputFiles.length===1);
+      }
     }
-    glob(input, (err, files) => {
-      if (err) {
-        console.error('ERROR: Invalid glob definition');
-        return 1;
-      }
-      for (let file of files) {
-        convertAndWrite(file, output);
-      }
-    });
     return 0;
   }
 
-  if ((args.output || args.o) && !args._[0]) {
+  if ((args.output || args.o) && args._.length === 0) {
     console.error('ERROR: Invalid input');
     return 1;
   }

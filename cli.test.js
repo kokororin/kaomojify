@@ -16,12 +16,12 @@ describe('cli', () => {
       assert.strictEqual(cli('-v'), 0);
     });
 
-    it('no error of run `kaomojify -h`', () => {
-      assert.strictEqual(cli('-h'), 0);
+    it('no error of run `kaomojify example/single/alert.js -o example/single/alert.kaomojify.js`', () => {
+      assert.strictEqual(cli('example/single/alert.js -o example/single/alert.kaomojify.js'), 0);
     });
 
-    it('no error of run `kaomojify example/simple.js -o example/dist/`', () => {
-      assert.strictEqual(cli('example/simple.js -o example/dist/'), 0);
+    it('no error of run `kaomojify example/multiple/*.js -o example/multiple/dist/`', () => {
+      assert.strictEqual(cli('example/multiple/*.js -o example/multiple/dist/'), 0);
     });
 
   });
