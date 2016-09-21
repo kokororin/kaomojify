@@ -1,6 +1,6 @@
-'use strict';
-
 module.exports = (text) => {
+  'use strict';
+  
   let t;
   const b = [
     "(c^_^o)",

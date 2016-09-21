@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+  - "4.4.3"
+  - "5.11.0"
+  - "6.1"
+
+before_script:
+  - npm install
+
+script:
+  - npm run test

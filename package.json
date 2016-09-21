@@ -1,14 +1,10 @@
 {
   "name": "kaomojify",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Kaomojify Javascript code",
   "main": "",
   "bin": {
-    "kaomojify": "./cli.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./"
+    "kaomojify": "./kaomojify.js"
   },
   "repository": {
     "type": "git",
@@ -23,14 +19,20 @@
     "url": "https://github.com/kokororin/kaomojify/issues"
   },
   "homepage": "https://github.com/kokororin/kaomojify#readme",
-  "devDependencies": {
-    "eslint": "^3.5.0",
-    "eslint-config-crocodile": "^1.0.0"
-  },
   "dependencies": {
     "glob": "^7.0.6",
     "mkdirp": "^0.5.1",
     "shelljs": "^0.7.4",
     "yargs": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.5.0",
+    "eslint-config-crocodile": "^1.0.0",
+    "mocha": "^3.0.2",
+    "power-assert": "^1.4.1"
+  },
+  "scripts": {
+    "test": "mocha ./*.test.js",
+    "lint": "eslint ./"
   }
 }
