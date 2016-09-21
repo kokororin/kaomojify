@@ -26,6 +26,7 @@
     "yargs": "^5.0.0"
   },
   "devDependencies": {
+    "ci-publish": "^1.3.0",
     "eslint": "^3.5.0",
     "eslint-config-crocodile": "^1.0.0",
     "mocha": "^3.0.2",
@@ -33,6 +34,7 @@
   },
   "scripts": {
     "test": "mocha ./*.test.js",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "ci-publish": "ci-publish"
   }
 }
