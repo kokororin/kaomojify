@@ -2,7 +2,7 @@
 
 [![Build Status](http://img.shields.io/travis/kokororin/kaomojify.svg)](https://travis-ci.org/kokororin/kaomojify)
 [![GitHub issues](https://img.shields.io/github/issues/kokororin/kaomojify.svg)](https://github.com/kokororin/kaomojify/issues)
-[![npm](https://img.shields.io/npm/dt/express.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/dt/kaomojify.svg?maxAge=2592000)]()
 [![npm version](https://badge.fury.io/js/kaomojify.svg)](https://badge.fury.io/js/kaomojify)
 ![Dependency Tracker](https://img.shields.io/david/kokororin/kaomojify.svg "Dependency Tracker") ![Dependency Tracker](https://img.shields.io/david/dev/kokororin/kaomojify.svg "Dependency Tracker")
 
