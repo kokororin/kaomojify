@@ -11,7 +11,6 @@ The converter is powered by [utf-8.jp](http://utf-8.jp/public/aaencode.html).
 ## Installation
 ```bash
 npm install -g kaomojify
-yarn global add kaomojify
 ```
 
 ## Usage
