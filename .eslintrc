@@ -1,12 +1,6 @@
 {
   "plugins": ["node"],
-  "extends": ["eslint:recommended", "plugin:node/recommended"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "es6": true,
-      "node": true
-    }
-  },
+  "extends": ["eslint:recommended", "plugin:node/recommended", "kotori"],
   "env": {
     "es6": true
   },

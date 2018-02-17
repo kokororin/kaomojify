@@ -1,5 +1,3 @@
-'use strict';
-
 const glob = require('glob');
 const yargs = require('yargs');
 const fs = require('fs');
@@ -38,7 +36,7 @@ const convertAndWrite = (inputFile, outputPath, single) => {
     fs.writeFileSync(realOutputPath, outputData);
     console.log('SUCCESS: generated file `' + realOutputPath + '`');
   } catch ( e ) {
-    console.error('ERROR: write data to `' + realOutputPath + '` failed.')
+    console.error('ERROR: write data to `' + realOutputPath + '` failed.');
     return 1;
   }
 
@@ -79,10 +77,10 @@ const cli = (args) => {
       console.error('ERROR: Invalid output');
       return 1;
     }
-    for (let inputFile of inputFiles) {
+    for (const inputFile of inputFiles) {
       if (!isThere(inputFile)) {
         glob(inputFile, (err, globFiles) => {
-          for (let globFile of globFiles) {
+          for (const globFile of globFiles) {
             convertAndWrite(globFile, outputPath, false);
           }
         });
